@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1749131360272,
+      "tag": "0000_awesome_maria_hill",
+      "breakpoints": true
+    }
+  ]
+}
