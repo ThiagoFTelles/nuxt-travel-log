@@ -8,6 +8,13 @@
       "when": 1749131360272,
       "tag": "0000_awesome_maria_hill",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1750338396539,
+      "tag": "0001_zippy_norman_osborn",
+      "breakpoints": true
     }
   ]
 }
