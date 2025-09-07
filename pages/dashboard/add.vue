@@ -28,11 +28,12 @@ const onSubmit = handleSubmit(async (values) => {
   }
   catch (e) {
     const error = e as FetchError;
+    console.log(">>>>>>>>>>> error = ", error);
     if (error.data?.data) {
       setErrors(error.data?.data);
     }
-    else if (error.data) {
-      setErrors(error.data);
+    else {
+      setErrors(error);
     }
     submitError.value = error.statusMessage || "An unknown error occurred.";
   }
