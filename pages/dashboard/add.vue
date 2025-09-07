@@ -28,13 +28,12 @@ const onSubmit = handleSubmit(async (values) => {
   }
   catch (e) {
     const error = e as FetchError;
+    // eslint-disable-next-line no-console
     console.log(">>>>>>>>>>> error = ", error);
     if (error.data?.data) {
       setErrors(error.data?.data);
     }
-    else {
-      setErrors(error);
-    }
+
     submitError.value = error.statusMessage || "An unknown error occurred.";
   }
   loading.value = false;
