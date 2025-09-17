@@ -29,17 +29,10 @@ const onSubmit = handleSubmit(async (values) => {
   catch (e) {
     const error = e as FetchError;
 
-    if (error.data?.statusCode) {
-      setErrors(error.data);
-      submitError.value = error.data.statusMessage || "An unknown error occurred.";
-    }
-    else if (error.data?.data) {
+    if (error.data?.data) {
       setErrors(error.data?.data);
-      submitError.value = error.data?.data.statusMessage || "An unknown error occurred.";
     }
-    else {
-      submitError.value = "An unknown error occurred.";
-    }
+    submitError.value = error.data?.data.statusMessage || error.statusMessage || "An unknown error occurred.";
   }
 
   loading.value = false;
