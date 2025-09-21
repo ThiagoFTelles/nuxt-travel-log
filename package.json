@@ -10,7 +10,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "lint": "eslint . --ext .vue,.ts,.js",
+    "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prepare": "husky"
   },
