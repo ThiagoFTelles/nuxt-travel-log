@@ -15,6 +15,9 @@ export default defineNuxtConfig({
     "nuxt-csurf",
     "nuxt-maplibre",
   ],
+  build: {
+    transpile: ["nuxt-maplibre"],
+  },
   css: ["~/assets/css/main.css"],
   eslint: {
     config: {
