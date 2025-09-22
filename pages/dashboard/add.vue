@@ -60,7 +60,11 @@ onBeforeRouteLeave(() => {
         A location is a place you have travelled or will travel to. It can be a city, country, state or point of interest. You can add specific times you visit this location after adding it.
       </p>
     </div>
-    <div v-if="submitError" role="alert" class="alert alert-error">
+    <div
+      v-if="submitError"
+      role="alert"
+      class="alert alert-error"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class="h-6 w-6 shrink-0 stroke-current"
@@ -76,7 +80,11 @@ onBeforeRouteLeave(() => {
       </svg>
       <span>{{ submitError }}</span>
     </div>
-    <form class="flex flex-col gap-2" action="" @submit.prevent="onSubmit">
+    <form
+      class="flex flex-col gap-2"
+      action=""
+      @submit.prevent="onSubmit"
+    >
       <AppFormField
         name="name"
         label="Name"
@@ -114,10 +122,18 @@ onBeforeRouteLeave(() => {
           <Icon name="tabler:arrow-left" size="24" />
           Cancel
         </button>
-        <button :disabled="loading" type="submit" class="btn btn-primary">
+        <button
+          :disabled="loading"
+          type="submit"
+          class="btn btn-primary"
+        >
           Add
           <span v-if="loading" class="loading loading-spinner loading-xs" />
-          <Icon v-else name="tabler:circle-plus-filled" size="24" />
+          <Icon
+            v-else
+            name="tabler:circle-plus-filled"
+            size="24"
+          />
         </button>
       </div>
     </form>
