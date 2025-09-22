@@ -13,7 +13,11 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "@vee-validate/nuxt",
     "nuxt-csurf",
+    "nuxt-maplibre",
   ],
+  build: {
+    transpile: ["nuxt-maplibre"],
+  },
   css: ["~/assets/css/main.css"],
   eslint: {
     config: {
@@ -24,6 +28,11 @@ export default defineNuxtConfig({
     plugins: [
       tailwindcss(),
     ],
+    optimizeDeps: {
+      include: [
+        "maplibre-gl",
+      ],
+    },
   },
   colorMode: {
     dataValue: "theme",
