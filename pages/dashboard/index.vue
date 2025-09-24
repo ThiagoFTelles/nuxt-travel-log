@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 const locationsStore = useLocationStore();
+const mapStore = useMapStore();
 const { locations, status } = storeToRefs(locationsStore);
 
 onMounted(() => {
@@ -27,10 +28,19 @@ onMounted(() => {
         class="
         card
         card-compact
+        mb-2
         bg-base-300
         h-40
         w-72
-        shrink-0"
+        shrink-0
+        border-2
+        hover:cursor-pointer"
+        :class="{
+          'border-accent': mapStore.selectedPoint === location,
+          'border-transparent': mapStore.selectedPoint !== location,
+        }"
+        @mouseenter="mapStore.selectedPoint = location"
+        @mouseleave="mapStore.selectedPoint = null"
       >
         <div class="card-body">
           <h3 clas="text-xl">
