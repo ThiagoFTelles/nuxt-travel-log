@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { isPointSelected } from "~/utils/map-points";
+
 const isSidebarOpen = ref(true);
 const route = useRoute();
 const sidebarStore = useSidebarStore();
@@ -56,14 +58,14 @@ function toggleSidebar() {
         </div>
         <div v-if="!sidebarStore.loading || sidebarStore.sidebarItems.length" class="flex flex-col">
           <SidebarButton
-            v-for="{ id, label, icon, href, location } in sidebarStore.sidebarItems"
+            v-for="{ id, label, icon, to, mapPoint } in sidebarStore.sidebarItems"
             :key="id"
             :show-label="isSidebarOpen"
             :label="label"
             :icon="icon"
-            :href="href"
-            :icon-color="mapStore.selectedPoint === location ? 'text-accent' : undefined"
-            @mouseenter="mapStore.selectedPoint = location ?? null"
+            :to="to"
+            :icon-color="isPointSelected(mapPoint, mapStore.selectedPoint) ? 'text-accent' : undefined"
+            @mouseenter="mapStore.selectedPoint = mapPoint ?? null"
             @mouseleave="mapStore.selectedPoint = null"
           />
         </div>
