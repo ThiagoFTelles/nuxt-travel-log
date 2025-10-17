@@ -1,5 +1,34 @@
+<script lang="ts" setup>
+import type { InsertLocation } from "~/lib/db/schema";
+
+const locationStore = useLocationStore();
+const route = useRoute();
+const { $csrfFetch } = useNuxtApp();
+
+async function onSubmit(values: InsertLocation) {
+  await $csrfFetch(`/api/locations/${route.params.slug}`, {
+    method: "put",
+    body: values,
+  });
+}
+
+function onSubmitComplete() {
+  navigateTo({
+    name: "dashboard-location-slug",
+    params: {
+      slug: route.params.slug,
+    },
+  });
+}
+</script>
+
 <template>
-  <div>
-    <h1>Location log edit page</h1>
-  </div>
+  <LocationForm
+    v-if="locationStore.currentLocationStatus !== 'pending'"
+    :on-submit
+    :initial-values="locationStore.currentLocation"
+    submit-label="Update"
+    submit-icon="tabler:map-pin-up"
+    :on-submit-complete
+  />
 </template>
