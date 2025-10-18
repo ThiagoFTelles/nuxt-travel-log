@@ -15,7 +15,7 @@ export const useLocationStore = defineStore("useLocationStore", () => {
     lazy: true,
   });
 
-  const locationUrlWithSlug = computed(() => `/api/locations/${route.params.slug}`);
+  const locationUrlWithSlug = computed(() => `/api/locations/${route.params.slug}` || "");
 
   const {
     data: currentLocation,
